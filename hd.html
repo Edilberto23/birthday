@@ -5,129 +5,148 @@
 <head>
     <title></title>
     <style type="text/css">
-        body {
-            height: 100%;
-            margin: 0;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .card {
-            position: relative;
-            width: 300px;
-            height: 425px;
-            border: 10px solid #9612eb;
-            margin: 60px auto 0 auto;
-            box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #e6f0e6;
-        }
 
-        .card .text-container {
-            width: 80%;
-            height: 80%;
-            margin: auto;
-        }
+body {
+    padding: 0px;
+    
+    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño del elemento */
+    background-repeat: no-repeat; /* Evita que el fondo se repita */
+    
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
 
-        .strikethrough {
-            text-decoration: line-through;
-        }
+.card {
+    position: relative; /* Permite el posicionamiento absoluto de los hijos */
+    width: 300px; /* Ancho de la tarjeta */
+    height: 425px; /* Altura de la tarjeta */
+    border: 10px solid #9612eb; /* Borde de la tarjeta */
+    margin: 60px auto; /* Margen superior de 60px, centrado horizontalmente */
+    box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1); /* Sombra interna */
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.5)),
+                      url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"); /* Imagen de fondo con gradiente */
+    background-position: center; /* Posiciona la imagen de fondo en el centro */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-color: #e6f0e6; /* Color de fondo */
+}
 
-        .card .text-container #head {
-            font-family: 'Nobile', sans-serif;
-            font-size: 1.5em;
-            margin: 60px auto 60px auto;
-        }
+.card .text-container {
+    width: 80%; /* Ancho del contenedor de texto */
+    height: 80%; /* Altura del contenedor de texto */
+    margin: auto; /* Centra el contenedor de texto */
+}
 
-        .card p {
-            font-size: 1.1em;
-            line-height: 1.4;
-            font-family: 'Nobile';
-            color: #331717;
-            font-style: italic;
-            text-align: center;
-            margin: 30px auto 0px auto;
-        }
+.strikethrough {
+    text-decoration: line-through; /* Aplica una línea a través del texto */
+}
 
-        .card .front {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            margin: -10px 0px 0px -10px;
-            border: 10px solid #9612eb;
-            backface-visibility: hidden;
-            background-color: #9612eb;
-            transform-style: preserve-3d;
-            transform-origin: 0% 50%;
-            transform: perspective(800px) rotateY(0deg);
-            transition: all 0.8s ease-in-out;
-        }
+.card .text-container #head {
+    font-family: 'Nobile', sans-serif; /* Fuente del encabezado */
+    font-size: 2em; /* Tamaño de la fuente del encabezado */
+    margin: 60px auto; /* Margen superior e inferior de 60px, centrado horizontalmente */
+}
 
-        .card:hover .front {
-            transform: perspective(800px) rotateY(-170deg);
-            background-color: #41718d;
-        }
+.card p {
+    font-size: 1.3em; /* Tamaño de la fuente de los párrafos */
+    line-height: 1.4; /* Altura de línea */
+    font-family: 'Nobile'; /* Fuente de los párrafos */
+    color: #331717; /* Color del texto */
+    font-style: italic; /* Estilo de la fuente en cursiva */
+    text-align: center; /* Alinea el texto al centro */
+    margin: 30px auto 0px auto; /* Margen superior de 30px, centrado horizontalmente */
+}
 
-        .card:hover .back {
-            transform: perspective(800px) rotateY(-170deg);
-            box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
-            background-color: #d2dcd2;
-        }
+.card .front {
+    position: absolute; /* Posicionamiento absoluto dentro de la tarjeta */
+    width: 100%; /* Ancho del frente de la tarjeta */
+    height: 100%; /* Altura del frente de la tarjeta */
+    margin: -10px 0px 0px -10px; /* Margen negativo para ajustar el borde */
+    border: 10px solid #9612eb; /* Borde del frente de la tarjeta */
+    backface-visibility: hidden; /* Oculta la parte trasera cuando se gira */
+    background-color: #9612eb; /* Color de fondo */
+    transform-style: preserve-3d; /* Mantiene el contexto 3D para los hijos */
+    transform-origin: 0% 50%; /* Origen de la transformación */
+    transform: perspective(800px) rotateY(0deg); /* Perspectiva y rotación inicial */
+    transition: all 0.8s ease-in-out; /* Transición suave para la transformación */
+}
 
-        .card .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 10px solid #9612eb;
-            margin: -10px 0px 0px -10px;
-            backface-visibility: visible;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
-            transform-style: preserve-3d;
-            transform-origin: 0% 50%;
-            transform: perspective(800px) rotateY(0deg);
-            transition: all 0.8s ease-in-out;
-            background-color: #e6f0e6;
-            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-        }
+.card:hover .front {
+    transform: perspective(800px) rotateY(-170deg); /* Rotación al hacer hover */
+    background-color: #41718d; /* Cambia el color de fondo al hacer hover */
+}
 
-        .imgset {
-            position: relative;
-            z-index: 1;
-            margin-bottom: -215px;
-        }
+.card:hover .back {
+    transform: perspective(800px) rotateY(-170deg); /* Rotación al hacer hover */
+    box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1); /* Sombra al hacer hover */
+    background-color: #d2dcd2; /* Color de fondo al hacer hover */
+}
 
-        .imgset img {
-            box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
-            border-radius: 5px;
-        }
+.card .back {
+    position: absolute; /* Posicionamiento absoluto dentro de la tarjeta */
+    width: 100%; /* Ancho de la parte trasera de la tarjeta */
+    height: 100%; /* Altura de la parte trasera de la tarjeta */
+    border: 10px solid #9612eb; /* Borde de la parte trasera de la tarjeta */
+    margin: -10px 0px 0px -10px; /* Margen negativo para ajustar el borde */
+    backface-visibility: visible; /* Muestra la parte trasera cuando se gira */
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5)); /* Sombra de la parte trasera */
+    transform-style: preserve-3d; /* Mantiene el contexto 3D para los hijos */
+    transform-origin: 0% 50%; /* Origen de la transformación */
+    transform: perspective(800px) rotateY(0deg); /* Perspectiva y rotación inicial */
+    transition: all 0.8s ease-in-out; /* Transición suave para la transformación */
+    background-color: #e6f0e6; /* Color de fondo */
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+}
 
-        @media (max-width: 600px) {
-            .card {
-                width: 90%;
-                height: auto;
-                margin: 20px auto;
-            }
+.imgset {
+    position: relative; /* Posicionamiento relativo */
+    z-index: 1; /* Nivel de apilamiento */
+    margin-bottom: -215px; /* Margen inferior negativo */
+}
 
-            .card .text-container {
-                width: 90%;
-            }
+.imgset img {
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22); /* Sombra de la imagen */
+    border-radius: 5px; /* Bordes redondeados de la imagen */
+}
 
-            .card .text-container #head {
-                font-size: 1.2em;
-                margin: 30px auto;
-            }
+/* Media queries para ajustar la imagen en diferentes tamaños de pantalla */
+@media (max-width: 1200px) {
+    /* Tamaño de la imagen más pequeño en pantallas grandes */
+    .card {
+        width: 400px;
+        height: 560px;
+    }
+}
 
-            .card p {
-                font-size: 1em;
-                margin: 20px auto;
-            }
-        }
+@media (max-width: 768px) {
+    /* Tamaño de la imagen más grande en pantallas pequeñas */
+    .card {
+        width: 100%;
+        height: auto;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Estilos adicionales para pantallas aún más pequeñas */
+    .card .text-container {
+        width: 100%;
+    }
+
+    .card .text-container #head {
+        font-size: 1.3em;
+        margin: 30px auto;
+    }
+
+    .card p {
+        font-size: 1em;
+        margin: 20px auto;
+    }
+}
+
+
     </style>
 </head>
 
@@ -145,7 +164,8 @@
         <div class="back"></div>
         <div class="front">
             <div class="imgset">
-                <img width="100%" src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png">
+                <img width="100%"
+                    src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png">
             </div>
         </div>
         <div class="text-container">

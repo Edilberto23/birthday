@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
-html, body, .container {
+html,
+body,
+.container {
   height: 100%;
-  font-family: 'Kaushan Script','Sail', cursive;
+  font-family: "Kaushan Script", "Sail", cursive;
 }
 
 body {
@@ -70,24 +72,24 @@ div#sea {
   bottom: 0px;
   top: 0px;
   background-color: #d44;
-  transition: background-color .5s ease;
+  transition: background-color 0.5s ease;
 }
 
 .giftbox {
   position: absolute;
-  width: 300px;
-  height: 200px;
-  top: 200px;
+  width: 500px;
+  height: 450px;
+  top: 50%;
   left: 50%;
-  margin-left: -150px;
-  bottom: 40px;
+  transform: translate(-50%, -50%);
   z-index: 10;
 }
 .giftbox > div {
   background: #34495e;
   position: absolute;
 }
-.giftbox > div:after, .giftbox > div:before {
+.giftbox > div:after,
+.giftbox > div:before {
   position: absolute;
   content: "";
   top: 0;
@@ -127,7 +129,8 @@ div#sea {
   top: -50px;
   transform: translateX(-50%);
 }
-.giftbox .cover > div:before, .giftbox .cover > div:after {
+.giftbox .cover > div:before,
+.giftbox .cover > div:after {
   position: absolute;
   left: 0;
   top: 0;
@@ -136,7 +139,7 @@ div#sea {
   content: "";
   box-shadow: inset 0 0 0 15px #fdc56d;
   border-radius: 30px;
-  transform-origin: 50% 100%;
+  transform-origin: 40% 100%;
 }
 .giftbox .cover > div:before {
   transform: translateX(-45%) skewY(40deg);
@@ -166,8 +169,8 @@ div#sea {
 .icons {
   position: absolute;
   left: 10px;
-  top:20%;
-  
+  top: 20%;
+
   /*width: 100%;*/
   height: auto;
   transform: translateY(10px) rotate(-20deg);
@@ -182,14 +185,16 @@ div#sea {
   font-size: 50px;
   display: inline-block;
   opacity: 0;
-  transition: transform 0.5s ease-in, opacity 0.7s;
+  transition:
+    transform 0.5s ease-in,
+    opacity 0.7s;
 }
 
 .step-1 .giftbox {
   animation: wobble 0.5s linear infinite forwards;
 }
 .step-1 .cover {
-  animation: wobble 0.5s linear infinite  0.1s forwards;
+  animation: wobble 0.5s linear infinite 0.1s forwards;
 }
 .step-1 .icons .row span {
   opacity: 1;
@@ -358,27 +363,43 @@ div#sea {
   transition-delay: 0.65s;
 }
 
-.step-2 .icons span, .step-3 .icons span, .step-4 .icons span {
+.step-2 .icons span,
+.step-3 .icons span,
+.step-4 .icons span {
   opacity: 1;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 0.91);
 }
 
-.step-4 .icons .row span, .step-3 .icons .row span {
+.step-4 .icons .row span,
+.step-3 .icons .row span {
   /*animation: wobble 0.6s linear infinite forwards;*/
   color: #c6e2ff;
-  animation: neon .08s ease-in-out infinite alternate;
+  animation: neon 0.08s ease-in-out infinite alternate;
 }
 
-.step-4 .icons .row span:nth-child(even), .step-3 .icons .row span:nth-child(even) {
+.step-4 .icons .row span:nth-child(even),
+.step-3 .icons .row span:nth-child(even) {
   animation-duration: 0.7s;
 }
 
 @keyframes neon {
   from {
-    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    text-shadow:
+      0 0 6px rgba(202, 228, 225, 0.92),
+      0 0 30px rgba(202, 228, 225, 0.34),
+      0 0 12px rgba(30, 132, 242, 0.52),
+      0 0 21px rgba(30, 132, 242, 0.92),
+      0 0 34px rgba(30, 132, 242, 0.78),
+      0 0 54px rgba(30, 132, 242, 0.92);
   }
   to {
-    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    text-shadow:
+      0 0 6px rgba(202, 228, 225, 0.98),
+      0 0 30px rgba(202, 228, 225, 0.42),
+      0 0 12px rgba(30, 132, 242, 0.58),
+      0 0 22px rgba(30, 132, 242, 0.84),
+      0 0 38px rgba(30, 132, 242, 0.88),
+      0 0 60px #1e84f2;
   }
 }
 .moon {
@@ -458,4 +479,3 @@ div#sea {
     right: 230px;
   }
 }
-

@@ -208,3 +208,6 @@ function reveal() {
     // Agregar el iframe al elemento con id "video"
     document.querySelector('#video').appendChild(ifrm);
   }
+
+  
+  
